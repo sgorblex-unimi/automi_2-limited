@@ -1,0 +1,64 @@
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+\setbeamercolor{structure}{fg=red!70!black}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\usepackage{transparent}
+\logo{\transparent{0.03}\includegraphics[width=1.3\textwidth]{img/unimi_logo.pdf}}
+
+\usepackage{settings-seminario}
+
+\title{Automi 2-limited e linguaggi context-free}
+\author{Alessandro Clerici Lorenzini}
+\date{luglio 2023}
+\institute{Seminario per l'esame di Teoria dei Linguaggi @ Unimi}
+
+\begin{document}
+\maketitle
+
+
+\section{Introduzione}
+
+
+\section{Automi \texorpdfstring{$2$}{2}-limited}
+\begin{frame}{Automi $d$-limited}
+	\begin{itemize}
+		\item Hibbard (1967), caratterizzazione del determinismo nei linguaggi liberi dal contesto
+		\item $d$-limited (\la d): restrizione di una macchina di Turing e al contempo generalizzazione degli automi \emph{two-way}:
+		      \begin{itemize}
+			      \item spazio di lavoro limitato alle celle contenenti l'input tramite \emph{end-marker}
+			      \item scrittura su ciascuna cella solo durante le sue prime $d$ visite
+		      \end{itemize}
+	\end{itemize}
+
+	\vfill
+	\begin{figure}
+		\centering
+		\input{img/dla_example.tikz}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Automi $2$-limited: un esempio}
+	\framesubtitle{Linguaggi di Dyck}
+\end{frame}
+
+\begin{frame}{Potenza riconoscitiva: tutti i linguaggi context-free}
+\end{frame}
+
+\begin{frame}{Potenza e complessità: altre facce della medaglia}
+\end{frame}
+
+\section{Da \texorpdfstring{$2$}{2}-limited a PDA}
+\begin{frame}{{Da \texorpdfstring{$2$}{2}-limited a PDA}}
+\end{frame}
+
+
+\section{Altri aspetti}
+\begin{frame}{Da PDA a \texorpdfstring{$2$}{2}-limited: complessità}
+\end{frame}
+
+\begin{frame}{Problemi aperti e ricerche future}
+\end{frame}
+
+\end{document}
