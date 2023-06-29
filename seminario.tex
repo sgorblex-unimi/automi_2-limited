@@ -41,12 +41,39 @@
 
 \begin{frame}{Automi $2$-limited: un esempio}
 	\framesubtitle{Linguaggi di Dyck}
+	Dato $k\in\N^+$
+	\begin{itemize}
+		\item $\Omega_k$ è l'alfabeto composto da $k$ tipi di parentesi ($2k$ simboli in tutto)
+		\item $D_k$ è il linguaggio delle parentesi bilanciate su $\Omega_k$, detto linguaggio di Dyck.
+	\end{itemize}
+	\vspace{1cm}
+	Mostriamo come un \la2 può riconoscere $D_k$.
 \end{frame}
 
 \begin{frame}{Potenza riconoscitiva: tutti i linguaggi context-free}
+	\begin{theor}[di Chomsky-Schützenberger]
+		Se $L$ è un linguaggio context-free su alfabeto $\Sigma$, esistono un naturale $k\in0$, un linguaggio regolare $R$ e un omomorfismo $h:\Omega_k\to\sigma\star$ tali che
+		\begin{equation*}
+			L=h(D_k\cap R)
+		\end{equation*}
+	\end{theor}
+	\only<2>{
+		\vfill
+		Un \la2 può simulare il comportamento di una composizione di macchine:
+		\begin{itemize}
+			\item una macchina one-way che su input $w$ produce nondeterministicamente una stringa $z\in h^{-1}(w)$;
+			\item il \la2 presentato precedentemente per $D_k$;
+			\item un automa a stati finiti per $R$.
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{Potenza e complessità: altre facce della medaglia}
+	\begin{itemize}
+		\item i \la2 riconoscono solo context-free? I.e., si possono convertire in PDA?
+		\item qual è il rapporto di complessità tra le diverse descrizioni (PDA, \la2)?
+		\item cosa succede nel caso deterministico?
+	\end{itemize}
 \end{frame}
 
 \section{Da \texorpdfstring{$2$}{2}-limited a PDA}
