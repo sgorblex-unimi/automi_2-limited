@@ -12,5 +12,8 @@
 *.toc
 *.snm
 *.nav
+*.auxlock
+*.bak*
 
 /seminario.pdf
+/tikz_cache
