@@ -77,7 +77,7 @@
 \end{frame}
 
 \section{Da \texorpdfstring{$2$}{2}-limited a PDA}
-\begin{frame}{{Da \texorpdfstring{$2$}{2}-limited a PDA}}
+\begin{frame}{Da \texorpdfstring{$2$}{2}-limited a PDA}
 	\only<1>{
 		\framesubtitle{Tabelle di transizione}
 		\begin{columns}[t]
@@ -104,6 +104,8 @@
 				\caption{$(q,+1,p,+1)\in\tau_w$}
 			\end{figure}
 		\end{columns}
+		\vfill
+		Composizione: $\tau_w\cdot\tau_z:=\tau_{wz}$
 	}
 	\only<2>{
 		\framesubtitle{Tabelle di uscita}
@@ -131,6 +133,43 @@
 				\caption{$(p,+1)\in\exitt(\tau_w,q,+1,\tau_z)$}
 			\end{figure}
 		\end{columns}
+	}
+\end{frame}
+\begin{frame}{PDA per $L\rem$}
+	\only<1>{
+		\framesubtitle{Definizioni}
+		$L\in\mathrm{CFL}$
+
+		$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$ tale che $\genlang(M)=L$
+
+		Costruiamo $M'=(Q',\Sigma,\Gamma',\delta',q_0',Z_0',F')$ tale che $\genlang(M')=L\rem$
+
+		\begin{gather*}
+			Q':=Q\cup Q\times\set{\tau_w\mid w\in\Sigma\star} \\
+			\Gamma':=\Gamma\cup\set{\tau_w\mid w\in\Sigma\star}
+		\end{gather*}
+
+		\begin{itemize}
+			\item Mantiene sulla pila lo stato del nastro di $M$ fino al simbolo letto, usando simboli per celle riscrivibili e tabelle per i segmenti congelati.
+			\item In \emph{normal mode} legge il prossimo simbolo e carica sulla pila quanto scritto da $M$, in \emph{back mode} simula il comportamento di $M$ in una computazione nella parte del nastro già visitata, agendo per $\emptyword$-mosse sulla pila.
+		\end{itemize}
+	}
+	\only<2>{
+		\framesubtitle{Normal mode}
+		In normal mode viene simulato direttamente il comportamento di $M$
+	}
+	\only<3>{
+		\framesubtitle{Back mode: 1 - entrata}
+		In back mode lo stato è una coppia $(q,T)$ composta dallo stato simulato $q$ di $M$ e la tabella di transizione $T$ dell'ultimo segmento congelato (i.e. quello che termina con l'ultima cella letta).
+	}
+	\only<4>{
+		\framesubtitle{Back mode: 2 - simbolo da riscrivere}
+	}
+	\only<5>{
+		\framesubtitle{Back mode: 3 - segmento congelato}
+	}
+	\only<6>{
+		\framesubtitle{Back mode: 4 - uscita}
 	}
 \end{frame}
 
