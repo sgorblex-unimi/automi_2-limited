@@ -78,6 +78,36 @@
 
 \section{Da \texorpdfstring{$2$}{2}-limited a PDA}
 \begin{frame}{{Da \texorpdfstring{$2$}{2}-limited a PDA}}
+	\only<1>{
+		\framesubtitle{Tabelle di transizione}
+		\begin{columns}[t]
+			\column{0.5\textwidth}
+			\begin{figure}[h]
+				\centering
+				\input{img/transtable--.tikz}
+				\caption{$(q,-1,p,-1)\in\tau_w$}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\input{img/transtable+-.tikz}
+				\caption{$(q,+1,p,-1)\in\tau_w$}
+			\end{figure}
+			\column{0.5\textwidth}
+			\begin{figure}[h]
+				\centering
+				\input{img/transtable-+.tikz}
+				\caption{$(q,-1,p,+1)\in\tau_w$}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\input{img/transtable++.tikz}
+				\caption{$(q,+1,p,+1)\in\tau_w$}
+			\end{figure}
+		\end{columns}
+	}
+	\only<2>{
+		\framesubtitle{Tabelle di uscita}
+	}
 \end{frame}
 
 
