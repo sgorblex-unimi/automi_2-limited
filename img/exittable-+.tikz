@@ -1,0 +1,14 @@
+\begin{tikzpicture}[tapeseg/.style={minimum height=1.1em,minimum width=1.5em,outer sep=0pt,node distance=0pt}]
+	\footnotesize
+	\node[tapeseg] (center) {};
+	\node[tapeseg,node distance=.5] (w) [left=of center] {$w$};
+	\node[tapeseg,node distance=.5] (z) [right=of center] {$z$};
+	\draw	([xshift=-2cm]center.north) -- ([xshift=+2cm]center.north)
+	([xshift=-2cm]center.south) -- ([xshift=+2cm]center.south)
+	(center.north) -- (center.south);
+	\node (q) at ([xshift=-2mm,yshift=-3mm]center.south) {$q$};
+	\node (p) at ([xshift=-2.2cm,yshift=-7mm]center.south) {$p$};
+	\draw	(q.east) -- ++(1cm,-.12cm)
+	-- ++(-2.5cm,-.09cm) -- ++(1cm,-.09cm)
+	-- (p.east);
+\end{tikzpicture}
