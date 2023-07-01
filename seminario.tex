@@ -155,20 +155,41 @@
 		\end{itemize}
 	}
 	\only<2>{
-		\framesubtitle{Normal mode}
-		In normal mode viene simulato direttamente il comportamento di $M$
+		\framesubtitle{Funzionamento}
+		Mostriamo il funzionamento lavorando su un nastro d'esempio:
+		\begin{figure}
+			\centering
+			\input{img/extape.tikz}
+		\end{figure}
+		Con $Y\in\Gamma_1$, $F\in\Gamma_2^+$, $a,b\in\Sigma=\Gamma_0$, $p\in Q$
 	}
 	\only<3>{
-		\framesubtitle{Back mode: 1 - entrata}
-		In back mode lo stato è una coppia $(q,T)$ composta dallo stato simulato $q$ di $M$ e la tabella di transizione $T$ dell'ultimo segmento congelato (i.e. quello che termina con l'ultima cella letta).
+		\framesubtitle{Normal mode}
+		In normal mode viene simulato direttamente il comportamento di $M$:
+		\begin{figure}
+			\centering
+			\input{img/normal.tikz}
+		\end{figure}
 	}
 	\only<4>{
-		\framesubtitle{Back mode: 2 - simbolo da riscrivere}
+		\framesubtitle{Back mode: 1 - entrata}
+		In back mode lo stato è una coppia $(q,T)$ composta dallo stato simulato $q$ di $M$ e la tabella di transizione $T$ dell'ultimo segmento congelato (i.e. quello che termina con l'ultima cella letta).
+		\begin{figure}
+			\centering
+			\input{img/back_entry.tikz}
+		\end{figure}
 	}
 	\only<5>{
-		\framesubtitle{Back mode: 3 - segmento congelato}
+		\framesubtitle{Back mode: 2 - simbolo da riscrivere}
+		\begin{figure}
+			\centering
+			\input{img/back_symb.tikz}
+		\end{figure}
 	}
 	\only<6>{
+		\framesubtitle{Back mode: 3 - segmento congelato}
+	}
+	\only<7>{
 		\framesubtitle{Back mode: 4 - uscita}
 	}
 \end{frame}

@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+	\footnotesize
+	\node[cell] (X) {$X$};
+
+	\node[cell] (b) [right=of X] {$b$};
+	\node[tapeseg] (Z) [above=of b] {$Z$};
+	\draw[shorten >=3pt,shorten <=3pt] (b.north east) -- (b.south west);
+	\node[cell,minimum width=40pt] (rd) [right=of b]{$\cdots$};
+	\node[node distance=0pt] (rem) [right=of rd]{\Large $\rem$};
+
+	\node[cell,minimum width=30pt] (F) [left=of X]{$F$};
+	\node[cell] (y) [left=of F]{$Y$};
+	\node[cell,minimum width=40pt] (ld) [left=of y]{$\cdots$};
+	\node[node distance=0pt] (rem) [left=of ld]{\Large $\lem$};
+
+	\node (q) [below=.35 of b] {$q$};
+	\draw[-latex,shorten >=1pt] (q) -- (b);
+	\node[outer sep=1pt] (r) [below=.35 cm of X] {$r$};
+	\draw[-latex,shorten >=1pt] (r) -- (X);
+	\draw[->] (q.south) .. controls +(down:2.5mm) and +(down:2.5mm) .. (r.south);
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[cell/.append style={minimum width=1.7em}]
+	\footnotesize
+	\node[cell] (d) {\lower -1.6ex \hbox{\vdots}};
+	\node[cell] (Y) [above=of d] {$Y$};
+	\node[cell] (F) [above=of Y] {$\tau_F$};
+	\node[cell] (X) [above=of F] {$X$};
+	\node[node distance=0pt] (state) [below=of d] {stato: $q\to (r,\tau_Z)$};
+	\node[node distance=0pt] (T) [below=of state] {$T:=\tau_Z$};
+\end{tikzpicture}
