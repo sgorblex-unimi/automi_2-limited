@@ -1,4 +1,4 @@
-\begin{tikzpicture}[tapeseg/.style={minimum height=1.1em,minimum width=1.5em,outer sep=0pt,node distance=0pt}]
+\begin{tikzpicture}
 	\footnotesize
 	\node[tapeseg] (center) {};
 	\node[tapeseg,node distance=.5] (w) [left=of center] {$w$};

@@ -1,4 +1,4 @@
-\begin{tikzpicture}[cell/.style={minimum height=1.5em,minimum width=1.5em,outer sep=0pt,rectangle,draw,node distance=0pt}]
+\begin{tikzpicture}
 	\node (lem) {\Large $\lem$};
 	\node[cell] (0) [right=of lem]{$\sigma_0$};
 	\node[cell] (1) [right=of 0] {$\sigma_1$};
