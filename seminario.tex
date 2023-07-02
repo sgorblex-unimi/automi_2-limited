@@ -30,6 +30,7 @@
 			      \item spazio di lavoro limitato alle celle contenenti l'input tramite \emph{end-marker}
 			      \item scrittura su ciascuna cella solo durante le sue prime $d$ visite
 		      \end{itemize}
+		\item $M=(Q,\Sigma,\Gamma,\delta,q_0,F)$, $\Gamma$ partizionato in $\Sigma=\Gamma_0,\Gamma_1,\dots,\Gamma_d$
 	\end{itemize}
 
 	\vfill
@@ -51,13 +52,14 @@
 \end{frame}
 
 \begin{frame}{Potenza riconoscitiva: tutti i linguaggi context-free}
+	\setbeamercovered{highly dynamic}
 	\begin{theor}[di Chomsky-Schützenberger]
 		Se $L$ è un linguaggio context-free su alfabeto $\Sigma$, esistono un naturale $k\in0$, un linguaggio regolare $R$ e un omomorfismo $h:\Omega_k\to\sigma\star$ tali che
 		\begin{equation*}
 			L=h(D_k\cap R)
 		\end{equation*}
 	\end{theor}
-	\only<2>{
+	\onslide<2>{
 		\vfill
 		Un \la2 può simulare il comportamento di una composizione di macchine:
 		\begin{itemize}
@@ -170,6 +172,9 @@
 			\centering
 			\input{img/normal.tikz}
 		\end{figure}
+		\begin{equation*}
+			(q,X,+1)\in\delta(p,a)
+		\end{equation*}
 		\vspace{1mm}
 		\begin{center}
 			Stato: $p\to q$
@@ -182,6 +187,9 @@
 			\centering
 			\input{img/back_entry.tikz}
 		\end{figure}
+		\begin{equation*}
+			(r,Z,-1)\in\delta(q,b)
+		\end{equation*}
 		\vspace{1mm}
 		\begin{center}
 			Stato: $q\to (r,\tau_Z)$ \\
@@ -194,6 +202,9 @@
 			\centering
 			\input{img/back_symb.tikz}
 		\end{figure}
+		\begin{equation*}
+			(s,Z',-1)\in\delta(r,X)
+		\end{equation*}
 		\vspace{1mm}
 		\begin{center}
 			Stato: $(r,T)\to (s,\tau_{Z'}\cdot T)$ \\
@@ -225,7 +236,7 @@
 			(u,Z'',+1)\in\delta(t,Y)
 		\end{equation*}
 		\vspace{1mm}
-		Sia $(v,d)\in\exitt(\tau_F,s,-1,T)$
+		Sia $(v,d)\in\exitt(\tau_{Z''},s,+1,T)$
 		\begin{itemize}
 			\item se $d=-1$, si aggiorna $T$ e si procede come in precedenza
 			\item se $d=+1$, si esce dalla back mode nello stato $v$, effettuando una push di $T$
