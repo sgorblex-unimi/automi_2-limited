@@ -237,9 +237,40 @@
 
 \section{Altri aspetti}
 \begin{frame}{Da PDA a \texorpdfstring{$2$}{2}-limited: complessità}
+	\only<1>{
+		\framesubtitle{Upper bound}
+		Adattando da $L\rem$ a $L$ si ottiene il teorema fondamentale
+		\begin{theor}
+			Ogni \la2 con $n$ stati e un alfabeto di lavoro di $m$ simboli può essere simulato da un PDA con $2n(2^{4n^2}+1)+1)$ stati e un alfabeto per la pila di $m+2^{4n^2}$ simboli.
+		\end{theor}
+	}
+	\only<2>{
+		\framesubtitle{Lower bound}
+		\begin{theor}
+			Per ogni $n\in\N^+$, esiste un linguaggio riconosciuto da un \la2 con $n$ stati per il cui riconoscimento un PDA necessita di un numero esponenziale in $n$ di stati.
+		\end{theor}
+	}
+	\only<3>{
+		\framesubtitle{Caso deterministico}
+		\begin{theor}
+			Per ogni D\la2 $M$ con $n$ stati e un alfabeto di lavoro di $m$ simboli che accetta un linguaggio $L$ si può costruire:
+			\begin{itemize}
+				\item un DPDA che accetti $L\rem$ con $n((2n+1)^{2n}+1)+1$ stati e un alfabeto per la pila di $m+(2n+1)^{2n}$ simboli
+				\item un PDA che accetti $L$ con $2n((2n+1)^{2n}+1)+1$ stati e un alfabeto per la pila di $m+(2n+1)^{2n}$ simboli
+				\item un DPDA che accetti $L$ di dimensione al più doppiamente esponenziale rispetto alla dimensione di $M$
+			\end{itemize}
+		\end{theor}
+	}
 \end{frame}
 
-\begin{frame}{Problemi aperti e ricerche future}
+\begin{frame}{Altri risultati}
+	\begin{theor}
+		\begin{itemize}
+			\item Per ogni DPDA $M$ esiste un D\la2 equivalente la cui dimensione è polinomiale in quella di $M$
+			\item Per ogni PDA $M$ esiste un \la2 equivalente la cui dimensione è polinomiale in quella di $M$
+			\item La classe dei linguaggi accettati da D\la2 coincide con quella dei linguaggi context-free deterministici
+		\end{itemize}
+	\end{theor}
 \end{frame}
 
 \end{document}
