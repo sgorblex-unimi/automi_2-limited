@@ -170,6 +170,10 @@
 			\centering
 			\input{img/normal.tikz}
 		\end{figure}
+		\vspace{1mm}
+		\begin{center}
+			Stato: $p\to q$
+		\end{center}
 	}
 	\only<4>{
 		\framesubtitle{Back mode: 1 - entrata}
@@ -178,6 +182,11 @@
 			\centering
 			\input{img/back_entry.tikz}
 		\end{figure}
+		\vspace{1mm}
+		\begin{center}
+			Stato: $q\to (r,\tau_Z)$ \\
+			$T:=\tau_Z$
+		\end{center}
 	}
 	\only<5>{
 		\framesubtitle{Back mode: 2 - simbolo da riscrivere}
@@ -185,12 +194,43 @@
 			\centering
 			\input{img/back_symb.tikz}
 		\end{figure}
+		\vspace{1mm}
+		\begin{center}
+			Stato: $(r,T)\to (s,\tau_{Z'}\cdot T)$ \\
+			$T:=\tau_{Z'}\cdot T=\tau_{Z'Z}$
+		\end{center}
 	}
 	\only<6>{
 		\framesubtitle{Back mode: 3 - segmento congelato}
+		\begin{figure}
+			\centering
+			\input{img/back_froz.tikz}
+		\end{figure}
+		\begin{equation*}
+			(t,-1)\in\exitt(\tau_F,s,-1,T)
+		\end{equation*}
+		\vspace{1mm}
+		\begin{center}
+			Stato: $(s,T)\to (t,\tau_F\cdot T)$ \\
+			$T:=\tau_F\cdot T=\tau_{FZ'Z}$
+		\end{center}
 	}
 	\only<7>{
 		\framesubtitle{Back mode: 4 - uscita}
+		\begin{figure}
+			\centering
+			\input{img/back_exit.tikz}
+		\end{figure}
+		\begin{equation*}
+			(u,Z'',+1)\in\delta(t,Y)
+		\end{equation*}
+		\vspace{1mm}
+		Sia $(v,d)\in\exitt(\tau_F,s,-1,T)$
+		\begin{itemize}
+			\item se $d=-1$, si aggiorna $T$ e si procede come in precedenza
+			\item se $d=+1$, si esce dalla back mode nello stato $v$, effettuando una push di $T$
+		\end{itemize}
+		Stessa procedura nel caso di mossa a destra da nastro congelato
 	}
 \end{frame}
 

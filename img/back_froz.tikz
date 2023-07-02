@@ -3,14 +3,13 @@
 	\node[cell] (d) {\lower -1.6ex \hbox{\vdots}};
 	\node[cell] (Y) [above=of d] {$Y$};
 	\node[cell] (F) [above=of Y] {$\tau_F$};
-	\node[cell] (X) [above=of F] {$X$};
-	\draw[->,shorten >=1pt,shorten <=1pt] (X.west) ..  node[left] {pop} controls +(left:2.5mm) and +(left:2.5mm) .. (F.west);
-	\draw (X.north east) -- (X.south west);
+	\draw[->,shorten >=1pt,shorten <=1pt] (F.west) ..  node[left] {pop} controls +(left:2.5mm) and +(left:2.5mm) .. (Y.west);
+	\draw (F.north east) -- (F.south west);
 \end{tikzpicture}
 \qquad
 \begin{tikzpicture}
 	\footnotesize
-	\node[cell] (a) {$X$};
+	\node[cell] (a) {$Z'$};
 	\node[cell] (b) [right=of a] {$Z$};
 	\node[cell,minimum width=40pt] (rd) [right=of b]{$\cdots$};
 	\node[node distance=0pt] (rem) [right=of rd]{\Large $\rem$};
@@ -19,13 +18,13 @@
 	\node[cell,minimum width=30pt] (ld) [left=of Y]{$\cdots$};
 	\node[node distance=0pt] (lem) [left=of ld]{\Large $\lem$};
 
-	\draw[shorten >=3pt,shorten <=3pt] (a.north east) -- (a.south west);
-	\node[tapeseg] (Zp) [above=of a] {$Z'$};
-
-	\node[outer sep=1pt] (r) [below=.35 cm of a] {$r$};
 	\node[tapeseg] (salign) [left=of a] {};
 	\node[outer sep=1pt] (s) [below=.35 of salign] {$s$};
-	\draw[-latex,shorten >=1pt] (r) -- (a);
+	\node[outer sep=1pt] (t) [below=.9 cm of Y] {$t$};
 	\draw[-latex,shorten >=1pt] (s) -- (salign);
-	\draw[->] (r.south) .. controls +(down:2.5mm) and +(down:2.5mm) .. (s.south);
+	\draw[-latex,shorten >=1pt] (t) -- ++(0,.6cm);
+
+	\draw	(s.south) -- ++(-1cm,-.12cm)
+		-- ++(2cm,-.09cm) -- ++(-1.5cm,-.10cm)
+		-- ++(.9cm,-.12cm) -- (t.south);
 \end{tikzpicture}

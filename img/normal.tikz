@@ -1,22 +1,20 @@
 \begin{tikzpicture}
 	\footnotesize
 	\node[cell] (a) {$a$};
-	% \node[cell] (a) {\lower 1.5ex \hbox{$a$}};
-	\draw[shorten >=3pt,shorten <=3pt] (a.north east) -- (a.south west);
-
 	\node[cell] (b) [right=of a] {$b$};
 	\node[cell,minimum width=40pt] (rd) [right=of b]{$\cdots$};
 	\node[node distance=0pt] (rem) [right=of rd]{\Large $\rem$};
+	\node[cell,minimum width=40pt] (F) [left=of a]{$F$};
+	\node[cell] (Y) [left=of F]{$Y$};
+	\node[cell,minimum width=30pt] (ld) [left=of Y]{$\cdots$};
+	\node[node distance=0pt] (lem) [left=of ld]{\Large $\lem$};
 
-	\node[cell,minimum width=30pt] (f) [left=of a]{$F$};
-	\node[cell] (y) [left=of f]{$Y$};
-	\node[cell,minimum width=40pt] (ld) [left=of y]{$\cdots$};
-	\node[node distance=0pt] (rem) [left=of ld]{\Large $\lem$};
-
+	\draw[shorten >=3pt,shorten <=3pt] (a.north east) -- (a.south west);
 	\node[tapeseg] (X) [above=of a] {$X$};
+
 	\node (p) [below=.35 cm of a] {$p$};
-	\draw[-latex,shorten >=1pt] (p) -- (a);
 	\node (q) [below=.35 of b] {$q$};
+	\draw[-latex,shorten >=1pt] (p) -- (a);
 	\draw[-latex,shorten >=1pt] (q) -- (b);
 	\draw[->] (p.south) .. controls +(down:2.5mm) and +(down:2.5mm) .. (q.south);
 \end{tikzpicture}
@@ -28,5 +26,4 @@
 	\node[cell] (F) [above=of Y] {$\tau_F$};
 	\node[cell] (X) [above=of F] {$X$};
 	\draw[->,shorten >=1pt,shorten <=1pt] (F.west) ..  node[left] {push} controls +(left:2.5mm) and +(left:2.5mm) .. (X.west);
-	\node[node distance=0pt] (state) [below=of d] {stato: $p\to q$};
 \end{tikzpicture}

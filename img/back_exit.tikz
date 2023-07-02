@@ -1,0 +1,45 @@
+\begin{tikzpicture}[cell/.append style={minimum width=1.7em}]
+	\footnotesize
+	\node[cell] (d) {\lower -1.6ex \hbox{\vdots}};
+	\node[cell] (Y) [above=of d] {$Y$};
+	\node[tapeseg] (align) [below=of Y] {};
+	\draw[->,shorten >=1pt,shorten <=1pt] (Y.west) ..  node[left] {pop} controls +(left:2.5mm) and +(left:2.5mm) .. (align.west);
+	\draw (Y.north east) -- (Y.south west);
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+	\footnotesize
+	\node[cell] (a) {$Z'$};
+	\node[cell] (b) [right=of a] {$Z$};
+	\node[cell,minimum width=40pt] (rd) [right=of b]{$\cdots$};
+	\node[node distance=0pt] (rem) [right=of rd]{\Large $\rem$};
+	\node[cell,minimum width=40pt] (F) [left=of a]{$F$};
+	\node[cell] (Y) [left=of F]{$Y$};
+	\node[cell,minimum width=30pt] (ld) [left=of Y]{$\cdots$};
+	\node[node distance=0pt] (lem) [left=of ld]{\Large $\lem$};
+
+	\draw[shorten >=3pt,shorten <=3pt] (Y.north east) -- (Y.south west);
+	\node[tapeseg] (Zpp) [above=of Y] {$Z''$};
+
+	\node[outer sep=1.5pt] (t) [below=.35 of Y] {$t$};
+	\node[tapeseg] (ualign) [right=of Y] {};
+	\node[tapeseg] (u) [below=.35 of ualign] {$u$};
+	\draw[-latex,shorten >=1pt] (t) -- (Y);
+	\draw[-latex,shorten >=1pt] (u) -- (ualign);
+	\draw[->] (t.south) .. controls +(down:2.5mm) and +(down:2.5mm) .. (u.south);
+
+	\node[tapeseg] (valign) [right=of b] {};
+	\node[tapeseg] (v) [below=1 cm of valign] {$v$};
+	\draw[-latex,shorten >=1pt] (v) -- ++(0,.6cm);
+	\draw	(u.south) -- ++(1.3cm,-.12cm)
+		-- ++(-1cm,-.09cm) -- ++(1.6cm,-.10cm)
+		-- ++(-2.3cm,-.12cm) -- (v.south);
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[cell/.append style={minimum width=1.7em}]
+	\footnotesize
+	\node[cell] (d) {\lower -1.6ex \hbox{\vdots}};
+	\node[cell] (Y) [above=of d] {$Y$};
+	\node[cell] (T) [above=of Y] {$T$};
+	\draw[->,shorten >=1pt,shorten <=1pt] (Y.west) ..  node[left] {push} controls +(left:2.5mm) and +(left:2.5mm) .. (T.west);
+\end{tikzpicture}

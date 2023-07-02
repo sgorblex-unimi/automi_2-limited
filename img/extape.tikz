@@ -1,16 +1,13 @@
 \begin{tikzpicture}
 	\footnotesize
-	% \node[cell] (a) {$a$};
 	\node[cell] (a) {\lower 1.5ex \hbox{$a$}};
-
 	\node[cell] (b) [right=of a] {$b$};
 	\node[cell,minimum width=40pt] (rd) [right=of b]{$\cdots$};
 	\node[node distance=0pt] (rem) [right=of rd]{\Large $\rem$};
-
-	\node[cell,minimum width=30pt] (f) [left=of a]{$F$};
-	\node[cell] (y) [left=of f]{$Y$};
-	\node[cell,minimum width=40pt] (ld) [left=of y]{$\cdots$};
-	\node[node distance=0pt] (rem) [left=of ld]{\Large $\lem$};
+	\node[cell,minimum width=40pt] (F) [left=of a]{$F$};
+	\node[cell] (y) [left=of F]{$Y$};
+	\node[cell,minimum width=30pt] (ld) [left=of y]{$\cdots$};
+	\node[node distance=0pt] (lem) [left=of ld]{\Large $\lem$};
 
 	\node (p) [below=.35 cm of a] {$p$};
 	\draw[-latex,shorten >=1pt] (p) -- (a);
