@@ -40,15 +40,26 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Automi $2$-limited: un esempio}
-	\framesubtitle{Linguaggi di Dyck}
-	Dato $k\in\N^+$
-	\begin{itemize}
-		\item $\Omega_k$ è l'alfabeto composto da $k$ tipi di parentesi ($2k$ simboli in tutto)
-		\item $D_k$ è il linguaggio delle parentesi bilanciate su $\Omega_k$, detto linguaggio di Dyck.
-	\end{itemize}
-	\vspace{1cm}
-	Mostriamo come un \la2 può riconoscere $D_k$.
+\begin{frame}{Automi $2$-limited: esempi}
+	\only<1>{
+		\framesubtitle{Linguaggi a blocchi}
+		$K_n$ è il linguaggio delle stringhe in $\set{0,1}$ composte da blocchi di lunghezza $n$ tali che almeno $n$ blocchi sono uguali all'ultimo:
+		\begin{align*}
+			K_n := \{ & x_1x_2\cdots x_kx\mid k\geq0,x_1,\dots x_k,x\in\set{0,1}^n,                    \\
+			          & \exists i_1<i_2<\dots<i_n\in\set{1,\dots,k},x_{i_1}=x_{i_2}=\dots=x_{i_n}=x \}
+		\end{align*}
+		Mostriamo un \la2 per $K_n$
+	}
+	\only<2>{
+		\framesubtitle{Linguaggi di Dyck}
+		Dato $k\in\N^+$
+		\begin{itemize}
+			\item $\Omega_k$ è l'alfabeto composto da $k$ tipi di parentesi ($2k$ simboli in tutto)
+			\item $D_k$ è il linguaggio delle parentesi bilanciate su $\Omega_k$, detto linguaggio di Dyck.
+		\end{itemize}
+		\vspace{1cm}
+		Mostriamo come un \la2 può riconoscere $D_k$
+	}
 \end{frame}
 
 \begin{frame}{Potenza riconoscitiva: tutti i linguaggi context-free}
