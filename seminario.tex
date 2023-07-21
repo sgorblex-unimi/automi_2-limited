@@ -17,14 +17,18 @@
 \begin{document}
 \maketitle
 
+\begin{frame}{Overview}
+	\tableofcontents
+\end{frame}
+
+
 
 \section{Introduzione}
 
 
-\section{Automi \texorpdfstring{$2$}{2}-limited}
+\subsection{Il modello}
 \begin{frame}{Automi $d$-limited}
 	\begin{itemize}
-		\item Hibbard (1967), caratterizzazione del determinismo nei linguaggi liberi dal contesto
 		\item $d$-limited (\la d): restrizione di una macchina di Turing e al contempo generalizzazione degli automi \emph{two-way}:
 		      \begin{itemize}
 			      \item spazio di lavoro limitato alle celle contenenti l'input tramite \emph{end-marker}
@@ -40,6 +44,8 @@
 	\end{figure}
 \end{frame}
 
+
+\subsection{Qualche esempio (utile)}
 \begin{frame}{Automi $2$-limited: esempi}
 	\only<1>{
 		\framesubtitle{Linguaggi a blocchi}
@@ -62,6 +68,9 @@
 	}
 \end{frame}
 
+
+
+\section{Potenza riconoscitiva}
 \begin{frame}{Potenza riconoscitiva: tutti i linguaggi context-free}
 	\setbeamercovered{highly dynamic}
 	\begin{theor}[di Chomsky-Schützenberger]
@@ -88,6 +97,8 @@
 		\item cosa succede nel caso deterministico?
 	\end{itemize}
 \end{frame}
+
+
 
 \section{Da \texorpdfstring{$2$}{2}-limited a PDA}
 \begin{frame}{Da \texorpdfstring{$2$}{2}-limited a PDA}
@@ -148,6 +159,9 @@
 		\end{columns}
 	}
 \end{frame}
+
+
+\subsection{Costruzione}
 \begin{frame}{PDA per $L\rem$}
 	\only<1>{
 		\framesubtitle{Definizioni}
@@ -257,7 +271,7 @@
 \end{frame}
 
 
-\section{Altri aspetti}
+\subsection{Complessità}
 \begin{frame}{Da PDA a \texorpdfstring{$2$}{2}-limited: complessità}
 	\only<1>{
 		\framesubtitle{Upper bound}
@@ -285,6 +299,9 @@
 	}
 \end{frame}
 
+
+
+\section{Altri aspetti}
 \begin{frame}{Altri risultati}
 	\begin{theor}
 		\begin{itemize}
