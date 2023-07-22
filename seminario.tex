@@ -4,6 +4,7 @@
 \setbeamercolor{structure}{fg=red!75!black}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{headline}{}
+\setbeamerfont{framesubtitle}{size=\large}
 \usepackage{transparent}
 \logo{\transparent{0.03}\includegraphics[width=1.3\textwidth]{img/unimi_logo.pdf}}
 
@@ -29,7 +30,7 @@
 \subsection{Il modello}
 \begin{frame}{Automi $d$-limited}
 	\begin{itemize}
-		\item $d$-limited (\la d): restrizione di una macchina di Turing e al contempo generalizzazione degli automi \emph{two-way}:
+		\item $d$-limited (\la d):
 		      \begin{itemize}
 			      \item spazio di lavoro limitato alle celle contenenti l'input tramite \emph{end-marker}
 			      \item scrittura su ciascuna cella solo durante le sue prime $d$ visite
@@ -49,20 +50,17 @@
 \begin{frame}{Automi $2$-limited: esempi}
 	\only<1>{
 		\framesubtitle{Linguaggi a blocchi}
-		$K_n$ è il linguaggio delle stringhe in $\set{0,1}$ composte da blocchi di lunghezza $n$ tali che almeno $n$ blocchi sono uguali all'ultimo:
+		$K_n$ è il linguaggio delle stringhe in $\set{a,b}$ composte da blocchi di lunghezza $n$ tali che almeno $n$ blocchi sono uguali all'ultimo:
 		\begin{align*}
-			K_n := \{ & x_1x_2\cdots x_kx\mid k\geq0,x_1,\dots x_k,x\in\set{0,1}^n,                    \\
+			K_n := \{ & x_1x_2\cdots x_kx\mid k\geq0,x_1,\dots x_k,x\in\set{a,b}^n,                    \\
 			          & \exists i_1<i_2<\dots<i_n\in\set{1,\dots,k},x_{i_1}=x_{i_2}=\dots=x_{i_n}=x \}
 		\end{align*}
 		Mostriamo un \la2 per $K_n$
 	}
 	\only<2>{
 		\framesubtitle{Linguaggi di Dyck}
-		Dato $k\in\N^+$
-		\begin{itemize}
-			\item $\Omega_k$ è l'alfabeto composto da $k$ tipi di parentesi ($2k$ simboli in tutto)
-			\item $D_k$ è il linguaggio delle parentesi bilanciate su $\Omega_k$, detto linguaggio di Dyck.
-		\end{itemize}
+		Dato $k\in\N^+$, sia $D_k$ è il linguaggio delle parentesi bilanciate, detto linguaggio di Dyck, sull'alfabeto $\Omega_k$ con $k$ tipi di parentesi.
+
 		\vspace{1cm}
 		Mostriamo come un \la2 può riconoscere $D_k$
 	}
@@ -74,27 +72,28 @@
 \begin{frame}{Potenza riconoscitiva: tutti i linguaggi context-free}
 	\setbeamercovered{highly dynamic}
 	\begin{theor}[di Chomsky-Schützenberger]
-		Se $L$ è un linguaggio context-free su alfabeto $\Sigma$, esistono un naturale $k\in0$, un linguaggio regolare $R$ e un omomorfismo $h:\Omega_k\to\sigma\star$ tali che
+		Se $L$ è un linguaggio context-free su alfabeto $\Sigma$, esistono un naturale $k\ge1$, un linguaggio regolare $R$ e un omomorfismo $h:\Omega_k\to\Sigma\star$ tali che
 		\begin{equation*}
 			L=h(D_k\cap R)
 		\end{equation*}
 	\end{theor}
 	\onslide<2>{
 		\vfill
-		Un \la2 può simulare il comportamento di una composizione di macchine:
+		\la2 che compone:
 		\begin{itemize}
 			\item una macchina one-way che su input $w$ produce nondeterministicamente una stringa $z\in h^{-1}(w)$;
 			\item il \la2 presentato precedentemente per $D_k$;
 			\item un automa a stati finiti per $R$.
 		\end{itemize}
+		Dettagli in [Pighizzini, Pisoni 2014]
 	}
 \end{frame}
 
 \begin{frame}{Potenza e complessità: altre facce della medaglia}
 	\begin{itemize}
-		\item i \la2 riconoscono solo context-free? I.e., si possono convertire in PDA?
-		\item qual è il rapporto di complessità tra le diverse descrizioni (PDA, \la2)?
-		\item cosa succede nel caso deterministico?
+		\item I \la2 riconoscono solo context-free? I.e., si possono convertire in PDA?
+		\item Qual è il rapporto di complessità tra le diverse descrizioni (PDA, \la2)?
+		\item Cosa succede nel caso deterministico?
 	\end{itemize}
 \end{frame}
 
@@ -165,11 +164,9 @@
 \begin{frame}{PDA per $L\rem$}
 	\only<1>{
 		\framesubtitle{Definizioni}
-		$L\in\mathrm{CFL}$
+		\la2 $M=(Q,\Sigma,\Gamma,\delta,q_0,F)$ tale che $\genlang(M)=:L$
 
-		$M=(Q,\Sigma,\Gamma,\delta,q_0,F)$ tale che $\genlang(M)=L$
-
-		Costruiamo $M'=(Q',\Sigma,\Gamma',\delta',q_0',Z_0',F')$ tale che $\genlang(M')=L\rem$
+		PDA $M'=(Q',\Sigma,\Gamma',\delta',q_0',Z_0',F')$ tale che $\genlang(M')=L\rem$
 
 		\begin{gather*}
 			Q':=Q\cup Q\times\set{\tau_w\mid w\in\Sigma\star} \\
@@ -177,8 +174,14 @@
 		\end{gather*}
 
 		\begin{itemize}
-			\item Mantiene sulla pila lo stato del nastro di $M$ fino al simbolo letto, usando simboli per celle riscrivibili e tabelle per i segmenti congelati.
-			\item In \emph{normal mode} legge il prossimo simbolo e carica sulla pila quanto scritto da $M$, in \emph{back mode} simula il comportamento di $M$ in una computazione nella parte del nastro già visitata, agendo per $\emptyword$-mosse sulla pila.
+			\item Pila: stato del nastro fino all'ultimo simbolo letto
+			\item Due modalità:
+			      \begin{itemize}
+				      \item normal mode: nuovi simboli
+				      \item back mode: computazione su nastro già visitato
+			      \end{itemize}
+			\item Si parte con una push di $\tau_{\lem}$
+			\item Si procede finché non si supera $\rem$
 		\end{itemize}
 	}
 	\only<2>{
@@ -192,7 +195,7 @@
 	}
 	\only<3>{
 		\framesubtitle{Normal mode}
-		In normal mode viene simulato direttamente il comportamento di $M$:
+		Simulazione diretta di $M$:
 		\begin{figure}
 			\centering
 			\input{img/normal.tikz}
@@ -207,7 +210,6 @@
 	}
 	\only<4>{
 		\framesubtitle{Back mode: 1 - entrata}
-		In back mode lo stato è una coppia $(q,T)$ composta dallo stato simulato $q$ di $M$ e la tabella di transizione $T$ dell'ultimo segmento congelato (i.e. quello che termina con l'ultima cella letta).
 		\begin{figure}
 			\centering
 			\input{img/back_entry.tikz}
@@ -275,39 +277,57 @@
 \begin{frame}{Da PDA a \texorpdfstring{$2$}{2}-limited: complessità}
 	\only<1>{
 		\framesubtitle{Upper bound}
-		Adattando da $L\rem$ a $L$ si ottiene il teorema fondamentale
+		Si adatta da $L\rem$ a $L$ introducendo una scelta nondeterministica
+		\vspace{5mm}
+
+		Ne deriva il teorema fondamentale
 		\begin{theor}
-			Ogni \la2 con $n$ stati e un alfabeto di lavoro di $m$ simboli può essere simulato da un PDA con $2n(2^{4n^2}+1)+1)$ stati e un alfabeto per la pila di $m+2^{4n^2}$ simboli.
+			Ogni \la2 con $n$ stati e un alfabeto di lavoro di $m$ simboli può essere simulato da un PDA con $2(n2^{4n^2}+n)+1$ stati e un alfabeto per la pila di $m+2^{4n^2}$ simboli.
 		\end{theor}
 	}
 	\only<2>{
-		\framesubtitle{Lower bound}
-		\begin{theor}
-			Per ogni $n\in\N^+$, esiste un linguaggio riconosciuto da un \la2 con $n$ stati per il cui riconoscimento un PDA necessita di un numero esponenziale in $n$ di stati.
-		\end{theor}
-	}
-	\only<3>{
 		\framesubtitle{Caso deterministico}
 		\begin{theor}
 			Per ogni D\la2 $M$ con $n$ stati e un alfabeto di lavoro di $m$ simboli che accetta un linguaggio $L$ si può costruire:
 			\begin{itemize}
-				\item un DPDA che accetti $L\rem$ con $n((2n+1)^{2n}+1)+1$ stati e un alfabeto per la pila di $m+(2n+1)^{2n}$ simboli
-				\item un PDA che accetti $L$ con $2n((2n+1)^{2n}+1)+1$ stati e un alfabeto per la pila di $m+(2n+1)^{2n}$ simboli
+				\item un DPDA che accetti $L\rem$ con $n(2n+1)^{2n}+n+1$ stati e un alfabeto per la pila di $m+(2n+1)^{2n}$ simboli
+				\item un PDA che accetti $L$ con $2(n(2n+1)^{2n}+n)+1$ stati e un alfabeto per la pila di $m+(2n+1)^{2n}$ simboli
 				\item un DPDA che accetti $L$ di dimensione al più doppiamente esponenziale rispetto alla dimensione di $M$
 			\end{itemize}
+		\end{theor}
+	}
+	\only<3>{
+		\framesubtitle{Lower bound}
+		\begin{theor}
+			Per ogni $n\in\N^+$, esiste un linguaggio riconosciuto da un \la2 con $n$ stati per il cui riconoscimento un PDA necessita di un numero esponenziale in $n$ di stati.
 		\end{theor}
 	}
 \end{frame}
 
 
 
-\section{Altri aspetti}
-\begin{frame}{Altri risultati}
+\section{Altri risultati}
+
+
+\subsection{Da PDA a \texorpdfstring{\la2}{2-LA}}
+\begin{frame}{Da PDA a \la2}
 	\begin{theor}
 		\begin{itemize}
 			\item Per ogni DPDA $M$ esiste un D\la2 equivalente la cui dimensione è polinomiale in quella di $M$
 			\item Per ogni PDA $M$ esiste un \la2 equivalente la cui dimensione è polinomiale in quella di $M$
 			\item La classe dei linguaggi accettati da D\la2 coincide con quella dei linguaggi context-free deterministici
+		\end{itemize}
+	\end{theor}
+\end{frame}
+
+
+\subsection{Altri limited}
+\begin{frame}{Altri limited}
+	\begin{theor}
+		\begin{itemize}
+			\item Gli \la1, come i D\la1, caratterizzano i regolari;
+			\item Per ogni $d\ge3$, ogni \la d può essere convertito in un \la{(d-1)} equivalente;
+			\item Per ogni $d\ge3$, esiste un linguaggio riconosciuto da un D\la d non riconoscibile da un D\la{(d-1)}
 		\end{itemize}
 	\end{theor}
 \end{frame}
