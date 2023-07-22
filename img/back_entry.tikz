@@ -10,6 +10,7 @@
 	\node[node distance=0pt] (lem) [left=of ld]{\Large $\lem$};
 
 	\node[tapeseg] (Z) [above=of b] {$Z$};
+	\draw [decorate,decoration={brace}] (Z.north west) -- (Z.north east) node[midway, above=3pt] {\SnowflakeChevron};
 	\draw[shorten >=3pt,shorten <=3pt] (b.north east) -- (b.south west);
 
 	\node (q) [below=.35 of b] {$q$};

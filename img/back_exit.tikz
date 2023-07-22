@@ -20,6 +20,7 @@
 
 	\draw[shorten >=3pt,shorten <=3pt] (Y.north east) -- (Y.south west);
 	\node[tapeseg] (Zpp) [above=of Y] {$Z''$};
+	\draw [decorate,decoration={brace,amplitude=3pt}] (Zpp.north west) -- (b.east|-Zpp.north west) node[midway, above=3pt] {\SnowflakeChevron};
 
 	\node[outer sep=1.5pt] (t) [below=.35 of Y] {$t$};
 	\node[tapeseg] (ualign) [right=of Y] {};

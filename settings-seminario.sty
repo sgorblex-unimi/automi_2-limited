@@ -1,8 +1,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 
-\usepackage{tikz}
+\usepackage{tikz,bbding}
 \usetikzlibrary{external}
+\usetikzlibrary{decorations.pathreplacing}
 \tikzexternalize[prefix=tikz_cache/]
 \usetikzlibrary{chains}
 \tikzset{tapeseg/.style={minimum height=1.5em,minimum width=1.5em,outer sep=0pt,node distance=0pt},cell/.style={rectangle,draw,tapeseg}}

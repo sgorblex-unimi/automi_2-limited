@@ -21,6 +21,7 @@
 
 	\draw[shorten >=3pt,shorten <=3pt] (a.north east) -- (a.south west);
 	\node[tapeseg] (Zp) [above=of a] {$Z'$};
+	\draw [decorate,decoration={brace}] (Zp.north west) -- (b.east|-Zp.north west) node[midway, above=3pt] {\SnowflakeChevron};
 
 	\node[outer sep=1pt] (r) [below=.35 cm of a] {$r$};
 	\node[tapeseg] (salign) [left=of a] {};

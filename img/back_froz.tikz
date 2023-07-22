@@ -18,6 +18,7 @@
 	\node[cell,minimum width=30pt] (ld) [left=of Y]{$\cdots$};
 	\node[node distance=0pt] (lem) [left=of ld]{\Large $\lem$};
 
+	\draw [decorate,decoration={brace,amplitude=3pt}] ([yshift=2mm] F.north west) -- ([yshift=2mm] b.east|-F.north west) node[midway, above=3pt] {\SnowflakeChevron};
 	\node[tapeseg] (salign) [left=of a] {};
 	\node[outer sep=1pt] (s) [below=.35 of salign] {$s$};
 	\node[outer sep=1pt] (t) [below=.9 cm of Y] {$t$};
