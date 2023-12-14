@@ -167,11 +167,7 @@
 		\la2 $M=(Q,\Sigma,\Gamma,\delta,q_0,F)$ tale che $\genlang(M)=:L$
 
 		PDA $M'=(Q',\Sigma,\Gamma',\delta',q_0',Z_0',F')$ tale che $\genlang(M')=L\rem$
-
-		\begin{gather*}
-			Q':=Q\cup Q\times\set{\tau_w\mid w\in\Sigma\star} \\
-			\Gamma':=\Gamma\cup\set{\tau_w\mid w\in\Sigma\star}
-		\end{gather*}
+		\vspace{5mm}
 
 		\begin{itemize}
 			\item Pila: stato del nastro fino all'ultimo simbolo letto
@@ -277,6 +273,11 @@
 \begin{frame}{Da PDA a \texorpdfstring{$2$}{2}-limited: complessità}
 	\only<1>{
 		\framesubtitle{Upper bound}
+		\begin{gather*}
+			Q':=Q\cup Q\times\set{\tau_w\mid w\in\Sigma\star} \\
+			\Gamma':=\Gamma\cup\set{\tau_w\mid w\in\Sigma\star}
+		\end{gather*}
+
 		Si adatta da $L\rem$ a $L$ introducendo una scelta nondeterministica
 		\vspace{5mm}
 
